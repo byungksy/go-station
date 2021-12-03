@@ -2,11 +2,20 @@ import {RouteRecordRaw} from 'vue-router';
 
 const routes: RouteRecordRaw[] = [
   {
-    path: '/auth',
-    component: () => import('layouts/LoginLayout.vue'),
-    children: [{path: '', component: () => import('pages/Login.vue')}],
+    path: '/',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [{path: '', component: () => import('pages/Index.vue')}],
   },
   {
+    path: '/auth',
+    component: () => import('layouts/MainLayout.vue'),
+    // component: () => import('layouts/LoginLayout.vue'),
+    children: [
+      {name: 'login', path: '', component: () => import('pages/Login.vue')},
+    ],
+  },
+  {
+    name: 'channels',
     path: '/channels',
     component: () => import('layouts/MainLayout.vue'),
     children: [{path: '', component: () => import('pages/Index.vue')}],
@@ -15,8 +24,16 @@ const routes: RouteRecordRaw[] = [
     path: '/channel',
     component: () => import('layouts/MainLayout.vue'),
     children: [
-      {path: 'stream', component: () => import('pages/Index.vue')},
-      {path: 'record', component: () => import('pages/Index.vue')},
+      {
+        name: 'live-channel',
+        path: 'stream',
+        component: () => import('pages/Index.vue'),
+      },
+      {
+        name: 'record-channel',
+        path: 'record',
+        component: () => import('pages/Index.vue'),
+      },
     ],
   },
 

@@ -13,15 +13,32 @@
 
         <q-btn dense flat round icon="menu" @click="toggleRightDrawer" />
       </q-toolbar>
-<!--      <q-tabs align="left">-->
-<!--        <q-route-tab to="/page1" label="Page One" />-->
-<!--        <q-route-tab to="/page2" label="Page Two" />-->
-<!--        <q-route-tab to="/page3" label="Page Three" />-->
-<!--      </q-tabs>-->
+      <!--      <q-tabs align="left">-->
+      <!--        <q-route-tab to="/page1" label="Page One" />-->
+      <!--        <q-route-tab to="/page2" label="Page Two" />-->
+      <!--        <q-route-tab to="/page3" label="Page Three" />-->
+      <!--      </q-tabs>-->
     </q-header>
 
     <q-drawer v-model="leftDrawerOpen" side="left" behavior="mobile">
       <!-- drawer content -->
+      <div class="q-pa-md">
+        <router-link :to="{name: 'login'}"
+          ><q-btn v-bind="{label: 'Login Page'}"
+        /></router-link>
+        <br>
+        <router-link :to="{name: 'channels'}"
+          ><q-btn v-bind="{label: 'Channels Page'}"
+        /></router-link>
+        <br>
+        <router-link :to="{name: 'live-channel'}"
+          ><q-btn v-bind="{label: 'Channel - Live Page'}"
+        /></router-link>
+        <br>
+        <router-link :to="{name: 'record-channel'}"
+          ><q-btn v-bind="{label: 'Channel - Record Page'}"
+        /></router-link>
+      </div>
     </q-drawer>
 
     <q-drawer show-if-above v-model="rightDrawerOpen" side="right" bordered>
