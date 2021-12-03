@@ -26,15 +26,15 @@
         <router-link :to="{name: 'login'}"
           ><q-btn v-bind="{label: 'Login Page'}"
         /></router-link>
-        <br>
+        <br />
         <router-link :to="{name: 'channels'}"
           ><q-btn v-bind="{label: 'Channels Page'}"
         /></router-link>
-        <br>
+        <br />
         <router-link :to="{name: 'live-channel'}"
           ><q-btn v-bind="{label: 'Channel - Live Page'}"
         /></router-link>
-        <br>
+        <br />
         <router-link :to="{name: 'record-channel'}"
           ><q-btn v-bind="{label: 'Channel - Record Page'}"
         /></router-link>
@@ -42,7 +42,7 @@
     </q-drawer>
 
     <q-drawer show-if-above v-model="rightDrawerOpen" side="right" bordered>
-      <!-- drawer content -->
+      <chat-place />
     </q-drawer>
 
     <q-page-container>
@@ -53,10 +53,11 @@
 
 <script lang="ts">
 import {defineComponent, ref} from 'vue';
+import ChatPlace from 'src/components/ChatPlace.vue';
 
 export default defineComponent({
   name: 'MainLayout',
-
+  components: {ChatPlace},
   setup() {
     const leftDrawerOpen = ref(false);
     const rightDrawerOpen = ref(false);
