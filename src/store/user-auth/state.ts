@@ -1,11 +1,13 @@
 export interface ExampleStateInterface {
-  prop: boolean;
+  isLoginState: boolean;
+  userName: string;
 }
 
 function state(): ExampleStateInterface {
   return {
-    prop: false
-  }
-};
+    isLoginState: false,
+    userName: '',
+  };
+}
 
 export default state;
